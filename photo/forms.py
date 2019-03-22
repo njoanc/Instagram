@@ -9,7 +9,6 @@ class ProfileForm(forms.ModelForm):
 	bio = forms.CharField(label='Image Caption',max_length=500)
 	profile_pic = forms.ImageField(label = 'Image Field')
 
-
 class ProfileUploadForm(forms.ModelForm):
 	class Meta:
 		model = Profile
@@ -19,5 +18,20 @@ class ProfileUploadForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Comment
-		
-		exclude = ['user','pic',]
+		fields = [ 'comment' ]  
+
+# class SignupForm(UserCreationForm):
+#     email = forms.EmailField(max_length=200, help_text='Required')
+#     class Meta:
+#         model = User
+#         fields = ('username', 'email', 'password1', 'password2')
+
+class NewImageForm(forms.ModelForm):
+    class Meta:
+        model = Pic
+        exclude = ['image_name', 'pub_date','profile','user']
+        widgets = {
+            'likes': forms.CheckboxSelectMultiple(),
+    }
+
+
