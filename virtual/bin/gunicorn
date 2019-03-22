@@ -1,4 +1,4 @@
-#!/home/wecode/Desktop/instagram/virtual/bin/python3.6
+#!/home/wecode/Desktop/instagram/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

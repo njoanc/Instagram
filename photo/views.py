@@ -136,3 +136,18 @@ def send(request):
         form = ImageForm() 
     return render(request, 'instagram/send.html',{"form" : form}) 
 
+# from .email import send_welcome_email
+# def photo_today(request):
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['your_name']
+#             email = form.cleaned_data['email']
+
+#             recipient = NewsLetterRecipients(name = name,email =email)
+#             recipient.save()
+#             send_welcome_email(name,email)
+
+#             HttpResponseRedirect('photo_today')
+#             #.................
+#     return render(request, 'all-photo/today-photo.html', {"date": date,"photo":photo,"letterForm":form})
