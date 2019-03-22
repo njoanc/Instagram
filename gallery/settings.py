@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photo.apps.PhotoConfig',
     'bootstrap3',
+    # 'photo',
     'registration',
     'tinymce',
 ]
