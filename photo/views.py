@@ -75,11 +75,11 @@ def search_results(request):
         searched_profiles = Profile.search_profile(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search_pic.html',{"message":message,"pics": searched_profiles})
+        return render(request, 'search.html',{"message":message,"pics": searched_profiles})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'search_pic.html',{"message":message})
+        return render(request, 'search.html',{"message":message})
 
 
 @login_required(login_url='/accounts/login/')
