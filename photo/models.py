@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 import datetime
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from tinymce.models import HTMLField
 
 
 class Profile(models.Model):
@@ -34,12 +35,33 @@ class Image(models.Model):
 
 class Comments (models.Model):
     comment_post = models.CharField(max_length=150)
-    author = models.ForeignKey('Profile',related_name='commenter' , on_delete=models.CASCADE)
+    author = models.ForeignKey('Profile',related_name='comment' , on_delete=models.CASCADE)
     commented_image = models.ForeignKey('Image', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.author
+	
+
+class Follow(models.Model):
+	user = models.ForeignKey(Profile,null=True)
+	follower = models.ForeignKey(User,null=True)
+
+	def __int__(self):
+		return self.name
+
+	def save_follower(self):
+		self.save()
+
+	def delete_follower(self):
+		self.save()
+
+class Unfollow(models.Model):
+	user = models.ForeignKey(Profile,null=True)
+	follower = models.ForeignKey(User,null=True)
+
+	def __int__(self):
+		return self.name
     
 
 

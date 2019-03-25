@@ -5,12 +5,13 @@ from django.conf.urls import url,include
 from django.contrib.auth import authenticate, login, logout
 from .forms import PostForm
 from django.conf.urls.static import static
-from .models import Profile, Image
+from .models import Profile, Image, Comments,Follow, Unfollow
 from django.contrib.auth.models import User
 from . import models
 from annoying.decorators import ajax_request
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+
 
 
 #Home page view function
