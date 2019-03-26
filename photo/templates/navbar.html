@@ -1,19 +1,19 @@
 <!-- Image and text -->
 <nav style="background-color: rgb(186, 229, 200); min-height: 80px;">
-    <a class="navbar-brand" href="{% url 'index_page' %}">
-    </a>
-      <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}" style="float: right; padding-right: 10%; line-height: 20px; padding-top: 20px; padding-bottom: 20px;">
+    <a class="navbar-brand" href="{% url 'index_page' %}"></a>
+    <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}" style="float: right; padding-right: 10%; line-height: 20px; padding-top: 20px; padding-bottom: 20px;">
         <input type="text" class="form-control my-2 my-sm-0 search-input" name="search" placeholder="Search username" id="search">
         <button class="btn btn-outline-primary" style="color:whitesmoke; background-color:rgb(30, 19, 80);">Submit</button>
-      </form>
-        {% if user.is_authenticated %}
-    
-        {% else %}
-        <img src="https://bit.ly/2utm0Jd" ;width: 50px; height=50px>
-        <a href="{%url 'index_page'%}"><button >Home</button></a>
-        <a href="/register/login"><button>Login</button></a>
-        <a href="register/logout"><button>Logout</button></a>
-        <a href="/upload"><button>Add Image</button></a>
-        {% endif %}
+    </form>
+    <img src="https://bit.ly/2utm0Jd" ;width: 50px; height=50px>
+    <a href="{%url 'index_page'%}"><button >Home</button></a>
+    <a href="/accounts/login"><button>Login</button></a>
+    <a href="accounts/logout"><button>Logout</button></a>
+    <a href="/upload"><button>Add Image</button></a>
+    {% if user.is_authenticated %}
 
+    {% else %}
+        
+    {% endif %}
+    
 </nav>

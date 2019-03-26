@@ -10,10 +10,11 @@ def index(request):
     image = Image.objects.all()
     return render(request, 'inst/index.html',{'image':image})
 
+@login_required(login_url='/accounts/login/')
 def login(request):
     return render(request, 'registration/login.html')
 
-@login_required(login_url='/register/login/')
+@login_required(login_url='/accounts/login/')
 def profile(request, username):
     uploadform= ImageForm
     image = Image.objects.all()
@@ -30,7 +31,7 @@ def profile(request, username):
     '''
     editing user profile fillform & submission
     '''
-@login_required(login_url='/register/login/')
+@login_required(login_url='/accounts/login/')
 def edit(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
@@ -68,7 +69,7 @@ def search(request):
         message = 'Enter term to search'
         return render(request, 'inst/search.html', {'message':message})
 
-@login_required(login_url='/register/login')
+@login_required(login_url='/accounts/login')
 def upload_image(request):
     if request.method == 'POST':
         uploadform = ImageForm(request.POST, request.FILES)
@@ -82,7 +83,7 @@ def upload_image(request):
     
     return render(request, 'inst/profile.html', {'uploadform':uploadform})
 
-@login_required(login_url='/register/login')
+@login_required(login_url='/accounts/login')
 def one_image(request,image_id):
     image = get_object_or_404(Image, pk=image_id)
     if request.method == 'POST':

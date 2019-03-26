@@ -77,7 +77,7 @@ class Image(models.Model):
     image.user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     image_likes = models.ManyToManyField('Profile', default=False, blank=True,related_name='likes')
     date = models.DateTimeField(auto_now_add=True, null= True)
-    # comment = models.ForeignKey(Comments, null=True ,on_delete=models.CASCADE)
+    # comment = models.ForeignKey
     user= models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
 
     def save_image(self):

@@ -10,8 +10,8 @@ urlpatterns=[
     url(r'^edit/$', views.edit, name='edit'),
     url(r'^upload/$', views.upload_image, name='upload_image'),
     url(r'^search/', views.search, name='search'),
-    url(r'^login/', views.login, name='login'),
-    url(r'^logout/', views.logout, name='logout'),
+    # url(r'^login/', views.login, name='login'),
+    # url(r'^logout/', views.logout, name='logout'),
     url(r'^comment/(?P<image_id>\d+)', views.one_image, name='comment'),
 ]
 if settings.DEBUG:

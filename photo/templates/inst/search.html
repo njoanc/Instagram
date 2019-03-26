@@ -5,17 +5,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h2 class="font2">Search for {{message}}</h2>
+            <h2 class="font2">{{message}}</h2>
         </div>
     </div>
     <div class="row">
         {% if profiles %}
             {% for profile in profiles %}
                 <div class="col-md-3 home-images search-results">
-                    <img src="{{profile.Profile_photo.url}}" alt="profile-photo">
-                    <p>{{profile.email}}</p>
-                    <p class="username">{{profile.user.username}} </p>
-                    <p>{{profile.bio}}</p>
+                    <img src="{{data.image.url}}l}}" alt="profile-photo">
+                    <p>{{profile.user.email}}</p>
+                    <p class="username">{{user.username}} </p>
+                    <p>Bio:{{user.profile.bio}}</p>
                 </div>
             {% endfor %}
         {% else %}

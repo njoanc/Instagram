@@ -11,15 +11,10 @@
             <a style="font-size:x-large;width:25%;" class="btn btn-outline-primary" href="{% url 'profile' username=request.user %}"><button style="font-size:x-large;background-color:rgb(26, 19, 88);">{{user}}</button></a>
             {% for item in image %}
 
-            <a href="profile/{{item.user.username}}/">
-                <div style="font-size: x-large;font-family: 'Lobster', cursive;">
-
-                    <button style="font-size:x-large;background-color:rgb(26, 19, 88);">{{item.user.username}}</button>
-                </div>
-            </a>
+            <a href="profile/{{item.user.username}}/"></a>
 
             {% for item in image %}
-            <img class="card-img-top img-responsive" src="{{item.Image.url}}" style="height:350px;width:450px;display: block; margin-left: auto;
+            <img class="card-img-top img-responsive" src="{{item.image.url}}" style="height:350px;width:450px;display: block; margin-left: auto;
             margin-right: auto; width: 50%;"/>
 
             <div class="card-body">
