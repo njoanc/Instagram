@@ -1,5 +1,5 @@
 <!-- Image and text -->
-<nav style="background-color: #00897b; min-height: 80px;;">
+<nav style="background-color: #b9cecc; min-height: 80px;;">
     <a class="navbar-brand" href="{% url 'index_page' %}">
     </a>
       <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}" style="float: right; padding-right: 10%; line-height: 20px; padding-top: 20px; padding-bottom: 20px;">
@@ -13,18 +13,16 @@
                     <span class="caret"></span>
                 </a> -->
             <div class="w3-show-inline-block" style="line-height: 20px; padding-top: 20px; padding-bottom: 20px; justify-content: space-between;">
-              <div class="w3-bar">  
-                        <a href="{%url 'index_page'%}"><button class="w3-btn w3-black" style= "background-color:rgb(30, 19, 80);"
-                            >Home</button></a>
-                            <a href="/upload"><button class="w3-btn w3-black" style= "background-color:rgb(30, 19, 80);"
-                                >Add Image</button></a>
-                        <a href="/logout"><button class="w3-btn w3-black" style= "background-color:rgb(30, 19, 80);border-radius:80%;">Logout</button></a>
-              </div>
+                <div class="w3-bar">  
+                    <a href="{%url 'index_page'%}"><button">Home</button></a>
+                    <a class='btn btn-default' href="/register/logout">Logout</a>
+                    <a class='btn btn-default' href="/register/login">Login</a>
+                    <a href="/upload"><button class="w3-btn w3-black">Add Image</button></a>
+                            
+                </div>
             </div>
         {% else %}
-        <li>
-            <a class='btn btn-default' href="/accounts/login">Login</a>
-        </li>
+        
 
         {% endif %}
     </div>
