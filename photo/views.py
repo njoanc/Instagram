@@ -15,10 +15,11 @@ def login(request):
     return render(request, 'registration/login.html')
 
 @login_required(login_url='/accounts/login/')
-def profile(request, username):
+def profile(request):
     uploadform= ImageForm
     image = Image.objects.all()
-    profile = User.objects.get(username=username)
+    current_user = request.user
+    profile = User.objects.get(username=current_user)
    
     try:
         profile_details = Profile.get_by_id(profile.id)

@@ -8,10 +8,10 @@
 
         <div class="card" style="text-align:center;">
 
-            <a style="font-size:x-large;width:25%;" class="btn btn-outline-primary" href="{% url 'profile' username=request.user %}"><button style="font-size:x-large;background-color:rgb(26, 19, 88);">{{user}}</button></a>
+            <a style="font-size:x-large;width:25%;" class="btn btn-outline-primary" href="{% url 'profile' %}"><button style="font-size:x-large;background-color:rgb(26, 19, 88);">{{user}}</button></a>
             {% for item in image %}
 
-            <a href="profile/{{item.user.username}}/"></a>
+            <a href="/profile"></a>
 
             {% for item in image %}
             <img class="card-img-top img-responsive" src="{{item.image.url}}" style="height:350px;width:450px;display: block; margin-left: auto;
