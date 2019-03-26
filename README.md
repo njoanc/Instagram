@@ -1,7 +1,7 @@
 # Instagram Clone
 Instagram Clone is an application that lets you display your photos for others to view,comment,like,follow  and unfollow.
 
-#### 2nd March 2018
+#### 25th March 2019
 
 #### By Jeanne d'Arc NYIRAMWIZA
 
@@ -30,7 +30,7 @@ As a user of the application i should be able to:
 
 * install Django
 
-   ```$ pip install django==1.11```
+   ```$ pip install django==2.1.7```
 
 * Create a virtual environment
 
@@ -63,7 +63,7 @@ As a user of the application i should be able to:
 ## Technologies Used
 
   * Python version 3.6.7
-  * Django version 1.11
+  * Django version 2.1.7
   * Bootstrap 3
   * Postgres Database
   * HTML & CSS 
