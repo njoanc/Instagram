@@ -1,0 +1,25 @@
+{%extends 'inst/base.html'%}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container" style="text-align:center;">
+    <div class="row edit-profile">
+        <div class="col-md-4 edit-areas">
+            <div class="profile" style="padding-top:70px;">
+                <h3><em>Profile picture</em></h3>
+                <img src="{{user.profile.Profile_photo.url}}"  alt="img" width="320px" height="220px ">
+            </div>
+            <br>
+            <h4><em>Bio</em></h4>
+            <br>
+            <h3><em>{{user.profile.Bio}}</em></h3>
+        </div>
+        <div class="col-md-8">
+            <form action="{% url 'edit' %}" style="width: 60%" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-outline-primary" value="Update">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

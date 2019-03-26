@@ -1,0 +1,66 @@
+{%extends 'inst/base.html'%}
+{% load bootstrap3 %}
+{% block content %}
+{{block.super}}
+
+<div class="container-fluid">
+    <div class="row d-flex justify-content-centerd-flex justify-content-center" style="height:350px;width:450px;border-radius:50%;display: block; margin-left: auto;
+    margin-right: auto;">
+        <div class="card">
+            <div class="well">
+            <img src="{{profile.profile.Profile_photo.url}}" width="400px" height="300px;" alt="" class="img-responsive" style= "border-radius:50%";>
+
+            <h1 class="profile-user-name" style="font-family: 'Charm', cursive;">{{user.username}}</h1>
+
+            <a href="{% url 'edit' %}"><button class="btn btn-outline-primary" style="font-size:x-large;background-color:rgb(26, 19, 88);">Edit Profile</button></a>
+
+            <ul style="list-style-type: none;">
+                <li><span style="color:rgb(126, 25, 25)">FOLLOWERS: 1520</span> followers</li>
+                <li><span style="color:rgb(126, 25, 25)">FOLLOWING: 3102</span> following</li>
+            </ul>
+
+            <p><span class="profile-real-name">USER-NAME: {{user.username}}</span> <br> BIO : {{user.profile.Bio}}</p>
+            </div>
+         <div class="col-md-3 col-sm-3 col-xs-12 single_portfolio_text">
+            <!-- End of profile section -->
+            <div class="btn">
+             <button class="btn btn-outline-primary" style="color:black;width:100%; background-color:rgb(30, 19, 80);" data-toggle="modal" data-target="#myModal{{user.id}}">Add
+                Post</button>
+            </div>
+            {% for data in images %}
+            <img src="{{data.Image.url}}" style="width:400px;height:300px;" class="gallery-image" alt="" class="img-responsive">
+
+            <ul style="list-style-type: none;">
+                <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span>6</li>
+                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span>4</li>
+            </ul>
+
+            {% endfor%}
+
+            <!-- End of gallery -->
+
+            <div class="modal" tabindex="-1" id="myModal{{user.id}}" role="dialog">
+                <div class="modal-dialog" role="document" id="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>Share captured moments with Friends and Family all over.</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% bootstrap_form uploadform %}
+                                <input type="submit" class="btn btn-success btn-lg" value="">
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

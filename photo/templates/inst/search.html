@@ -1,0 +1,25 @@
+
+{% extends 'all-insta/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 class="font2">Search for {{message}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% if profiles %}
+            {% for profile in profiles %}
+                <div class="col-md-3 home-images search-results">
+                    <img src="{{profile.Profile_photo.url}}" alt="profile-photo">
+                    <p>{{profile.email}}</p>
+                    <p class="username">{{profile.user.username}} </p>
+                    <p>{{profile.bio}}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+                    <h4>No results for {{message}} </h4>
+        {% endif %}
+    </div>
+{% endblock %}

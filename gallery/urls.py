@@ -13,18 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-"""insta URL Configuration"""
+"""photo URL Configuration"""
 
+from django.conf.urls import url,include
 from django.contrib import admin
-from django.urls import include, path
-from photo import views
-from django.conf.urls.static import static
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-
-    path('admin/', admin.site.urls),
-    path('', include('photo.urls')),
-    path('accounts/', include('registration.backends.simple.urls')),
-
+    url(r'^admin/', admin.site.urls),
+    url(r'',include('photo.urls')),
+    url(r'^register/', include('registration.backends.simple.urls')),
+    url( r'^login/$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
+    url( r'^logout/$',auth_views.LogoutView.as_view(template_name="registration/logout.html"), name="logout"),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]

@@ -1,20 +1,16 @@
-from django.urls import path
+from django.conf.urls import url
 from . import views
-from django.conf import settings
 from django.conf.urls.static import static
-from django.shortcuts import render, redirect
-
+from django.conf import settings
 
 
 urlpatterns=[
- 
-    path('',views.index, name='index'),
-    path('explore',views.explore,name ='explore'),
-    path('notification',views.notification,name ='notification'),
-    path('profile',views.profile,name ='profile'),
-    path('login',views.login,name ='login'),
-    path('logout',views.index,{'next_page': 'accounts:login'}, name='logout'),
-    path('upload',views.upload,name ='upload'), 
+    url('^$',views.index,name = 'index_page'),
+    url(r'^profile/(?P<username>\w+)', views.profile, name='profile'),
+    url(r'^edit/$', views.edit, name='edit'),
+    url(r'^upload/$', views.upload_image, name='upload_image'),
+    url(r'^search/', views.search, name='search'),
+    url(r'^comment/(?P<image_id>\d+)', views.one_image, name='comment'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

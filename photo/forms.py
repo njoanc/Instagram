@@ -1,13 +1,30 @@
 from django import forms
-from .models import Profile, Image
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Image, Profile, Comments
 
-class PostForm(forms.ModelForm):
-  class Meta:
-    model = Image
-    fields = ('image_caption', 'image', 'tag_someone',)
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
 
-class SignUpForm(forms.ModelForm):
-  class Meta:
-    model = Profile
-    exclude = ['bio','profile_pic','profile_avatar','date']
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        exclude = ['Likes', 'pub_date', 'Profile']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ('comment_post', 'author','commented_image')
+
+class SignUpForm(UserCreationForm):
+
+    class Meta:
+        model = User
+
+        fields = ('first_name',
+                  'last_name',
+                  'email',
+                  'password1',
+                  'password2', )

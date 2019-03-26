@@ -1,72 +1,68 @@
-{%extends "registration/base.html"%} {% load bootstrap3 %} {% block content %}
-<div class="container">
-    <div class="register">
-
-<!-- Output to Display error in Signup -->
-
-<div class="registform">
-    {% if form.errors %}
-    <p>Incorrect Information </p>
-    {% endif %}
-    <div class="panel panel-default">
-
-        <img src="../../static/images/instalogowhite.png" alt="signuplogo " style="width:190px; height:70px;margin: 5px auto; display: block;">
-
-        <div class="panel-body">
-
-            <form action="/accounts/register/" method="post">
-                {% csrf_token %} {% bootstrap_form form %}
-
-                <!-- Sign Up Button -->
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+{%extends "registration/base.html"%}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container-fluid" style="font-size:x-large;background-color:rgb(26, 19, 88);">
+    <div class="row">
+        <!-- Empty div -->
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
                 </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            {% if form.errors %}
+            <p> Check your information and before submiting </p>
+            {% endif %}
+            <div class="card" id="user">
 
-                <div class="col-xs-10"></div>
-                <h2 class="text-center">
-                    <small>OR</small>
-                </h2>
-                <div class="col-xs-2"></div>
-                <div class="panel-heading">
-                    <p class="_g9ean pull-left">Have an account?</p>
-                    <a href="/accounts/login/" class="btn btn-primary btn-sm pull-right">Sign In</a>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <h2>Latest Instagram</h2>
+                    </div>
                 </div>
-                <input type="hidden" name="next" value="{{next}}">
+                <div class="col-md-2"></div>
+            </div>
 
-            </form>
+            <div class="card-body">
 
+                <form  action="/accounts/register/" method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-outline-primary " value="Sign Up" style="width:110px;text-align: center;margin-left: 40%;font-size: x-large;">
+                    </div>
+
+                    <input type="hidden" name="next" value="{{next}}">
+
+                </form>
+
+            </div>
+            <div class="card-footer text-center ">
+
+                <h3> By signing up, you agree to our</h3>
+                <br>
+                <a href="https://help.instagram.com/581066165581870" target="blank" style="color:gray">Terms</a>,
+                <a href="https://help.instagram.com/519522125107875" target="blank" style="color:gray">Data Policy</a>
+                and<br><a href="https://help.instagram.com/1896641480634370?ref=ig" target="blank" style="color:gray">Cookies
+                    Policy.</a>
+
+
+            </div>
+            <div class="card text-center">
+                <p>Open an account now <a href="/accounts/login/?next=/">sign-in</a></p>
+            </div>
+            <div class="app-download-links">
+                <p  style="text-align: center">Get the app.</p>
+            </div>
         </div>
 
     </div>
-
 </div>
-
-
-
-<!-- Play Store and Apple store Images With well text to put them sidebyside! -->
-<div class="regplaystorebtn">
-
-
-    <div class="googlebtn">
-
-        <a href="https://play.google.com/store/search?q=instagram">
-            <img src="../../static/images/playstore.svg" alt="signuplogo " style="width:150px; height:40px ">
-        </a>
-
-    </div>
-
-    <div class="applebtn">
-
-        <a href="https://www.apple.com/us/search/instagram?src=itunes_serp">
-            <img src="../../static/images/applestore.jpeg" alt="signuplogo " style="width:150px; height:40px ">
-        </a>
-
-    </div>
-
+<!-- empty div -->
+<div class="col-md-4"></div>
 </div>
-<!--Collapse! Play Store and Apple store Images With well text to put them sidebyside! -->
-
-    </div>
-</div>
-
 {% endblock %}
