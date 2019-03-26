@@ -1,5 +1,5 @@
 <!-- Image and text -->
-<nav style="background-color: #b9cecc; min-height: 80px;;">
+<nav style="background-color: rgb(186, 229, 200); min-height: 80px;">
     <a class="navbar-brand" href="{% url 'index_page' %}">
     </a>
       <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}" style="float: right; padding-right: 10%; line-height: 20px; padding-top: 20px; padding-bottom: 20px;">
@@ -7,23 +7,12 @@
         <button class="btn btn-outline-primary" style="color:whitesmoke; background-color:rgb(30, 19, 80);">Submit</button>
       </form>
         {% if user.is_authenticated %}
-        
-            <!-- <li class="dropdown" style="list-style-type: none;font-size: x-large;">
-                <a style="font-size:large;color:whitesmoke" href="#" class="dropdown-toggle btn btn-outline-primary" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                    <span class="caret"></span>
-                </a> -->
-            <div class="w3-show-inline-block" style="line-height: 20px; padding-top: 20px; padding-bottom: 20px; justify-content: space-between;">
-                <div class="w3-bar">  
-                    <a href="{%url 'index_page'%}"><button">Home</button></a>
-                    <a class='btn btn-default' href="/register/logout">Logout</a>
-                    <a class='btn btn-default' href="/register/login">Login</a>
-                    <a href="/upload"><button class="w3-btn w3-black">Add Image</button></a>
-                            
-                </div>
-            </div>
+    
         {% else %}
-        
-
+        <a href="{%url 'index_page'%}"><button >Home</button></a>
+        <a href="/register/login"><button>Login</button></a>
+        <a href="register/logout"><button>Logout</button></a>
+        <a href="/upload"><button>Add Image</button></a>
         {% endif %}
     </div>
 

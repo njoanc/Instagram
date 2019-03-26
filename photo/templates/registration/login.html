@@ -1,7 +1,16 @@
 {%extends "registration/base.html"%}
 {% load bootstrap3 %}
 {% block content %}
-<div class="container-fluid" style="font-size:x-large;background-color:rgb(26, 19, 88);">
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+</style>
+<img src="https://bit.ly/2utm0Jd" style="width:50px;height:50px" class ="center">
+<div class="container-fluid" style="font-size:x-large;background-color:whitesmoke;">
     <div class="row">
         <!-- Empty div -->
         <div class="col-md-4"></div>
@@ -33,16 +42,9 @@
 
                     </div>
                     <p style="color:salmon">Don't have an account? <a class = "btn btn-outline-primary" href="/accounts/register/">sign-up</a></p>
-                    <p>Get the app.</p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- empty div -->
-</div>
-</div>
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"></div>
 </div>
 {% endblock %}
