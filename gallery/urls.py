@@ -24,6 +24,6 @@ urlpatterns = [
     url(r'',include('photo.urls')),
     url(r'^register/', include('registration.backends.simple.urls')),
     url( r'^login/$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
-    url( r'^logout/$',auth_views.LogoutView.as_view(template_name="registration/logout.html"), name="logout"),
+    url( r'^logout/$',auth_views.LogoutView.as_view(template_name="registration/login.html"), name="login"),
     url(r'^tinymce/', include('tinymce.urls')),
 ]

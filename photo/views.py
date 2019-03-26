@@ -37,7 +37,7 @@ def edit(request):
         if form.is_valid():
             edit = form.save(commit=False)
             edit.user = request.user
-            edit.save()
+            # edit.save()
             return redirect('index_page')
     else:
         form = ProfileForm()
